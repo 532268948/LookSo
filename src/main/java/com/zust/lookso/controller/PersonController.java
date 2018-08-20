@@ -16,10 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("person")
 public class PersonController {
 
-//    @ResponseBody
+    @ResponseBody
     @RequestMapping("/index")
     public String test(){
         return "测试成功";
     }
-
 }
