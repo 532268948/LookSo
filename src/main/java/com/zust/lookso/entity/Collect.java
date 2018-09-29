@@ -1,6 +1,9 @@
 package com.zust.lookso.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,11 +14,11 @@ import java.util.Date;
  * 描 述：
  */
 @Entity
-public class Collect {
+public class Collect implements Serializable {
     int id;
     User user;
     Movie movie;
-    Date time;
+    String time;
 
     @Id
     @GeneratedValue
@@ -30,6 +33,7 @@ public class Collect {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clct_uid")
+    @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
     public User getUser() {
         return user;
     }
@@ -40,6 +44,7 @@ public class Collect {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clct_mid")
+    @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
     public Movie getMovie() {
         return movie;
     }
@@ -49,11 +54,11 @@ public class Collect {
     }
 
     @Column(name = "clct_time")
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 }

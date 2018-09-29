@@ -38,6 +38,19 @@
         <property name="favorPathExtension" value="false"/>
     </bean>-->
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 拦截所有URL中包含/login_confirmation/的请求 -->
+            <mvc:mapping path="/**/verify/**"/>
+            <bean class="com.zust.lookso.intercepter.LoginInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <!-- 拦截所有URL中包含/login_confirmation/的请求 -->
+            <mvc:mapping path="/**"/>
+            <bean class="com.zust.lookso.intercepter.OptionInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"
           p:ignoreDefaultModelOnRedirect="true" >
         <property name="messageConverters">

@@ -16,7 +16,7 @@
         <!-- 指定连接数据库的密码 -->
         <property name="connection.password">123456</property>
         <!-- 指定连接池里最大连接数 -->
-        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.max_size">5000</property>
         <!-- 指定连接池里最小连接数 -->
         <property name="hibernate.c3p0.min_size">1</property>
         <!-- 指定连接池里连接的超时时长 -->
@@ -37,16 +37,9 @@
         <property name="hibernate.format_sql">false</property>
         <property name="javax.persistence.validation.mode">none</property>
 
-        <!--<mapping class="com.example.etime.entity.User"/>-->
-        <!--<mapping class="com.example.etime.entity.Activity"/>-->
-        <!--<mapping class="com.example.etime.entity.Affair"/>-->
-        <!--<mapping class="com.example.etime.entity.Report"/>-->
-        <!--<mapping class="com.example.etime.entity.OrderEntity"/>-->
-        <!--<mapping class="com.example.etime.entity.Comment"/>-->
-        <!--<mapping class="com.example.etime.entity.Split"/>-->
-        <!--<mapping class="com.example.etime.entity.AffairType"/>-->
-        <!--<mapping class="com.example.etime.entity.Letter"/>-->
-        <!--<mapping class="com.example.etime.entity.JoinActivity"/>-->
-        <!--<mapping class="com.example.etime.entity.Discuss"/>-->
+        <mapping class="com.zust.lookso.entity.Collect"/>
+        <mapping class="com.zust.lookso.entity.Movie"/>
+        <mapping class="com.zust.lookso.entity.Review"/>
+        <mapping class="com.zust.lookso.entity.User"/>
     </session-factory>
 </hibernate-configuration>

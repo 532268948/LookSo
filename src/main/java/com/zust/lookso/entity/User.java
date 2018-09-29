@@ -1,9 +1,7 @@
 package com.zust.lookso.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * 作 者： ZUST_YTH
@@ -14,15 +12,18 @@ import javax.persistence.Id;
  */
 
 @Entity
-public class User {
+@Table(name = "user")
+public class User implements Serializable {
     int id;
     int type;
     String nickname;
-    int name;
+    String name;
     String password;
     int sex;
     String head;
     String description;
+    int level;
+    int status;
 
     @Id
     @GeneratedValue
@@ -54,11 +55,11 @@ public class User {
     }
 
     @Column(name = "user_name")
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -96,5 +97,22 @@ public class User {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Column(name = "user_level")
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+    @Column(name = "user_status")
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
